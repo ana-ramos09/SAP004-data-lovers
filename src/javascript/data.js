@@ -14,8 +14,7 @@ const utils = {
             filterArray.push(i);
           }
         }
-
-      } else if (filterType == "weaknesses") {
+      } else {
         for (let j = 0 ; j < myObject.pokemon[i].weaknesses.length; j++) {
           if (myObject.pokemon[i].weaknesses[j] == filterValue) {
             filterArray.push(i);
@@ -37,7 +36,6 @@ const utils = {
     }
     return indexArray;
   },
-
 
   sortData: function(data, sortBy, sortOrder){
     switch(sortOrder){
@@ -72,15 +70,17 @@ const utils = {
     for(let x = 0; x < data.length; x++){
       data[x].type.forEach(function(elem){
         if(!(elem in types)){
-          types[elem] = 1;
+          types[elem] = {total:1};
         } else {
-          types[elem] += 1;
+          types[elem]["total"] += 1;
         }
       });
     }
+    for(let type in types){
+      types[type]["percent"] = Math.round((types[type]["total"] * 100) / 151);
+    }
     return types;
   }
-
 }
 
 export default utils;

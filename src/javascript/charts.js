@@ -1,4 +1,4 @@
-import myObject from './data/pokemon/pokemon.js';
+import myObject from '../data/pokemon/pokemon.js';
 
 function typeChart (pokemonType) {
   let pokemonQtd = 0;
@@ -64,10 +64,22 @@ function drawChart() {
 
   if (chartValue == "type") {
     dataArray = chartDataType();
-    options = {'title': "Percentage of Pokémon Types",'width':600,'height':450,'backgroundColor': 'transparent'};
+    options = {'title':"Percentage of Pokémon Types", 'backgroundColor':'transparent', 'width':600, 'height':450};
+
+    if(window.innerWidth <= 450){
+      options.width = 300, options.height = 250;
+    } else if(window.innerWidth <= 650){
+      options.width = 400, options.height = 350;
+    }
   } else if (chartValue == "egg") {
     dataArray = chartDataEgg();
-    options = {'title': "Number of Pokémon Found in Eggs",'width':600,'height':450,'backgroundColor': 'transparent'};
+    options = {'title':"Number of Pokémon Found in Eggs", 'backgroundColor':'transparent', 'width':600, 'height':450};
+
+    if(window.innerWidth <= 450){
+      options.width = 300, options.height = 250;
+    } else if(window.innerWidth <= 650){
+      options.width = 400, options.height = 350;
+    }
   }
 
   let data = new google.visualization.DataTable();

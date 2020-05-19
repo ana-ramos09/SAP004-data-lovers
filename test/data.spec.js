@@ -1,4 +1,4 @@
-import utils from '../src/data.js';
+import utils from '../src/javascript/data.js';
 import myObject from '../src/data/pokemon/pokemon.js';
 
 describe('utils', () => {
@@ -67,20 +67,20 @@ describe('utils', () => {
     expect(typeof utils.computeStats).toBe('function');
     });
 
-    it('should return "3" with "Dragon" type', () => {
-      expect(utils.computeStats(myObject.pokemon)["Dragon"]).toBe(3);
+    it('should return "2%" with "Dragon" type', () => {
+      expect(utils.computeStats(myObject.pokemon)["Dragon"]["percent"]).toBe(2);
     });
 
-    it('should return "14" with "Grass" type', () => {
-      expect(utils.computeStats(myObject.pokemon)["Grass"]).toBe(14);
+    it('should return "9%" with "Grass" type', () => {
+      expect(utils.computeStats(myObject.pokemon)["Grass"]["percent"]).toBe(9);
     });
 
-    it('should return "24" with "Normal" type', () => {
-      expect(utils.computeStats(myObject.pokemon)["Normal"]).toBe(24);
+    it('should return "16%" with "Normal" type', () => {
+      expect(utils.computeStats(myObject.pokemon)["Normal"]["percent"]).toBe(16);
     });
 
-    it('should return "32" with "Water" type', () => {
-      expect(utils.computeStats(myObject.pokemon)["Water"]).toBe(32);
+    it('should return "21%" with "Water" type', () => {
+      expect(utils.computeStats(myObject.pokemon)["Water"]["percent"]).toBe(21);
     });
   });
 });
